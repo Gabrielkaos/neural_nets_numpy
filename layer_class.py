@@ -1,6 +1,5 @@
 import numpy as np
-
-
+from activation_class import ReLU
 
 
 
@@ -20,12 +19,15 @@ class Layer:
 
 layer1 = Layer(2,3)
 layer2 = Layer(3,1)
+relu = ReLU()
+relu1 = ReLU()
 
 inputs = np.array([[0.1,0.2],
                    [0.3,0.1],
                    [0.2,0.2]])
 
 layer1.forward(inputs)
-print(layer1.outputs)
-layer2.forward(layer1.outputs)
-print(layer2.outputs)
+relu.forward(layer1.outputs)
+layer2.forward(relu.outputs)
+relu1.forward(layer2.outputs)
+print(relu1.outputs)
